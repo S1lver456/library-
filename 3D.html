@@ -59,53 +59,53 @@
     </section>
 
     <section class="info" id="commands-detailed">
-        <h2>10 базових команд Git — з коментарями та прикладами</h2>
+        <h2>10 базових команд Blender — з коментарями </h2>
 
-        <pre><code>1) git init
-Команда: git init
-Коментар: Ініціалізує новий локальний репозиторій у поточній теці. Створює папку .git із метаданими.
-Приклад: git init</code></pre>
+        <pre><code>1) Ctrl + S
+Команда: Ctrl + S (Save)
+Коментар: Зберігає поточний файл .blend.
+</code></pre>
 
-        <pre><code>2) git clone &lt;url&gt;
-Команда: git clone https://github.com/user/repo.git
-Коментар: Клонує віддалений репозиторій локально — звантажує весь вміст та історію.</code></pre>
+        <pre><code>2) Ctrl + A (Apply)
+Команда: Ctrl + A (Apply)
+Коментар: Застосовує трансформації об’єкта (позицію, обертання, масштаб).</code></pre>
 
-        <pre><code>3) git add &lt>файл(и)&gt;
-Команда: git add file.txt
-Коментар: Додає файли до індексу (staging area) — підготовка до коміту. Для всіх файлів: git add .</code></pre>
+        <pre><code>3) Tab
+Команда: Tab
+Коментар: Перемикається між Object Mode (робота з об’єктами) та Edit Mode (редагування геометрії).</code></pre>
 
-        <pre><code>4) git commit -m "повідомлення"
-Команда: git commit -m "Додано стартовий файл"
-Коментар: Фіксує індексні зміни у новий коміт з повідомленням.</code></pre>
+        <pre><code>4) X / Delete
+Команда: X / Delete
+Коментар: Видаляє виділений об’єкт або елементи геометрії.</code></pre>
 
-        <pre><code>5) git push &lt;remote&gt; &lt;branch&gt;
-Команда: git push origin main
-Коментар: Відправляє локальні коміти на віддалений сервер (remote). Зазвичай origin та назва гілки.</code></pre>
+        <pre><code>5) Shift + D (Duplicate)
+Команда: Shift + D (Duplicate)
+Коментар: Створює копію виділеного об’єкта.</code></pre>
 
-        <pre><code>6) git pull
-Команда: git pull
-Коментар: Забирає останні зміни з віддаленого репозиторію і автоматично зливає їх у поточну гілку (fetch + merge).</code></pre>
+        <pre><code>6) Ctrl + Z (Undo)
+Команда: Ctrl + Z (Undo)
+Коментар: Скасовує останню дію.</code></pre>
 
-        <pre><code>7) git status
-Команда: git status
-Коментар: Показує незафіксовані зміни, файли в індексі та поточну гілку — дуже корисна для орієнтування.</code></pre>
+        <pre><code>7) E (Extrude)
+Команда: E (Extrude)
+Коментар: Екструдує виділену вершину, ребро або грань для створення нової геометрії.</code></pre>
 
-        <pre><code>8) git log --oneline
-Команда: git log --oneline
-Коментар: Показує журнал комітів. Варіант --oneline зручний для стислого перегляду історії.</code></pre>
+        <pre><code>8) S (Scale)
+Команда: S (Scale)
+Коментар: Змінює розмір об’єкта або виділеної частини.</code></pre>
 
-        <pre><code>9) git branch &lt;ім'я_гілки&gt;
-Команда: git branch feature-x
-Коментар: Створює нову гілку. git branch без параметрів покаже існуючі гілки. Щоб перейти: git checkout feature-x</code></pre>
+        <pre><code>9) R (Rotate)
+Команда: R (Rotate)
+Коментар: Обертає об’єкт або виділену геометрію.</code></pre>
 
-        <pre><code>10) git merge &lt;гілка&gt;
-Команда: git merge feature-x
-Коментар: Зливає вказану гілку у поточну. Часто використовують після перевірки змін у feature-гілці.</code></pre>
+        <pre><code>10) G (Grab/Move)
+Команда: G (Grab/Move)
+Коментар: Переміщує виділений об’єкт або вершину.</code></pre>
 
     </section>
 
     <section class="info" id="git-certificate">
-        <h2>Сертифікат курсу по Git</h2>
+        <h2>Сертифікат по 3D</h2>
         <img src="images/certificate.png"  style="max-width:540px; border:2px solid #00FFF7; border-radius:10px; box-shadow:0 0 12px #00FFF7;">
     </section>
 
@@ -128,6 +128,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
