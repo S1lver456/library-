@@ -1,0 +1,58 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; background: linear-gradient(135deg, #0D1B2A, #1B263B, #0D1B2A); color: #E0E0E0; }
+
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background-color:rgba(27,38,59,0.9); box-shadow:0 0 10px #00FFF7; position:sticky; top:0; z-index:1000; }
+header .logo { font-family:'Orbitron',sans-serif; font-size:26px; color:#00FFF7; }
+
+/* Hero */
+.hero { text-align:center; padding:60px 20px; text-shadow:0 0 10px #00FFF7; }
+.hero h1 { font-family:'Orbitron',sans-serif; font-size:40px; margin-bottom:8px; color:#00FFF7; }
+.hero p { font-size:18px; margin-bottom:20px; }
+.button { background:#0D1B2A; border:2px solid #00FFF7; color:#00FFF7; padding:12px 24px; font-weight:bold; border-radius:12px; cursor:pointer; text-transform:uppercase; box-shadow:0 0 5px #00FFF7,0 0 10px #00FFF7,0 0 20px #00FFF7; text-decoration:none; display:inline-block; transition:0.3s; }
+.button:hover { box-shadow:0 0 20px #00FFF7,0 0 40px #8C54FF,0 0 60px #FF79C6; transform:scale(1.05); }
+
+@keyframes pulse { 0%{transform:scale(1.02);}50%{transform:scale(1.05);}100%{transform:scale(1.02);} }
+
+/* Info sections */
+.info { padding:30px 40px; }
+.info h2 { color:#00FFF7; margin-bottom:12px; text-shadow:0 0 8px #00FFF7; }
+.info p, .info ul { font-size:16px; margin-bottom:10px; }
+
+/* Cards */
+.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:18px; padding:20px; }
+.card-container { display:flex; flex-wrap:wrap; gap:18px; justify-content:center; }
+.card { background:linear-gradient(145deg,#1B263B,#4B367C); border-radius:12px; width:200px; padding:16px; text-align:center; color:#E0E0E0; box-shadow:0 0 10px #00FFF7,0 0 20px #8C54FF; transition:transform 0.25s, box-shadow 0.25s, opacity 0.5s; opacity:0; transform:translateY(10px); animation:fadeInUp 0.6s forwards; }
+.card img { width:48px; margin-bottom:8px; filter:drop-shadow(0 0 5px #00FFF7); }
+.card h3 { margin-bottom:6px; font-size:18px; }
+.card p { font-size:14px; color:#cfd8e3; }
+
+@keyframes fadeInUp { to {opacity:1; transform:translateY(0);} }
+
+/* Detailed commands */
+#commands-detailed pre { background:rgba(0,0,0,0.2); border-left:4px solid #00FFF7; padding:12px; border-radius:6px; overflow:auto; margin-bottom:12px; color:#E0F7F5; }
+#commands-detailed code { font-family: 'Courier New', monospace; font-size:14px; }
+#git-certificate img { display:block; margin:12px auto; }
+
+/* Links and sources */
+a { color:#00FFF7; text-decoration:none; }
+a:hover { color:#8C54FF; text-shadow:0 0 8px #8C54FF; }
+
+/* Certificate on index */
+.certificate-section { text-align:center; padding:30px; }
+.certificate-section img { max-width:360px; border:2px solid #00FFF7; border-radius:10px; box-shadow:0 0 10px #00FFF7; display:block; margin:12px auto; }
+
+/* Footer */
+footer { text-align:center; padding:20px; background-color:#1B263B; }
+
+/* Green Theme */
+body.green-theme { background: linear-gradient(135deg, #0D1B2A, #1B3B1B, #00FF7F); }
+body.green-theme header .logo,
+body.green-theme .hero h1,
+body.green-theme .button,
+body.green-theme .card,
+body.green-theme .card img,
+body.green-theme header nav a,
+body.green-theme .certificate-section img,
+body.green-theme #git-certificate img { box-shadow:0 0 10px #00FF7F,0 0 20px #00FF7F,0 0 40px #00FF7F; text-shadow:0 0 5px #00FF7F,0 0 10px #00FF7F,0 0 20px #00FF7F; border-color:#00FF7F; }
