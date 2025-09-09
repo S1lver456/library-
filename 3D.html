@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git - S1lver Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">S1lver</div>
+    </header>
+
+    <section class="hero">
+        <h1>Вивчай Git легко</h1>
+        <p>Короткий блок знань: теорія, команди, сертифікат і корисні джерела.</p>
+    </section>
+
+    <section class="info" id="overview">
+        <h2>Коротка інформація про системи контролю версій та Git</h2>
+        <p>Системи контролю версій (Version Control Systems, VCS) — інструменти, що дозволяють відстежувати зміни в файлах проекту, працювати над однією кодовою базою багатьом користувачам, порівнювати версії та відкотити невдалий код. Git — розподілена VCS, створена для швидкої та ефективної роботи з історією змін, гілками та злиттями. Кожен користувач отримує повну копію репозиторію, що підвищує надійність і дає гнучкість у роботі офлайн.</p>
+    </section>
+
+    <section class="info" id="advantages">
+        <h2>Основні можливості та переваги використання Git</h2>
+        <ul>
+            <li><strong>Розподіленість:</strong> кожен має локальну копію — швидка робота та можливість працювати офлайн.</li>
+            <li><strong>Швидкість:</strong> більшість операцій виконуються локально дуже швидко.</li>
+            <li><strong>Гілки і злиття:</strong> просте створення гілок для фіч та паралельної роботи.</li>
+            <li><strong>Історія змін:</strong> легкий відкат до попередніх станів і аудит змін.</li>
+            <li><strong>Спільна робота:</strong> інтеграція з GitHub/GitLab/Bitbucket робить колаборацію простою.</li>
+            <li><strong>Безпека:</strong> контроль цілісності даних через SHA-1 (або інші механізми в сучасних реалізаціях).</li>
+        </ul>
+    </section>
+
+    <section id="commands" class="cards">
+        <h2>10 базових команд Git (короткі картки)</h2>
+        <div class="card-container">
+            <div class="card"><img src="images/git-init.png" alt="git init"><h3>git init</h3><p>Створює новий репозиторій Git</p></div>
+            <div class="card"><img src="images/git-clone.png" alt="git clone"><h3>git clone</h3><p>Копіює репозиторій на ваш комп'ютер</p></div>
+            <div class="card"><img src="images/git-add.png" alt="git add"><h3>git add</h3><p>Додає файли до індексу для коміту</p></div>
+            <div class="card"><img src="images/git-commit.png" alt="git commit"><h3>git commit</h3><p>Фіксує зміни в репозиторії</p></div>
+            <div class="card"><img src="images/git-push.png" alt="git push"><h3>git push</h3><p>Відправляє зміни на віддалений репозиторій</p></div>
+            <div class="card"><img src="images/git-pull.png" alt="git pull"><h3>git pull</h3><p>Отримує останні зміни з віддаленого репозиторію</p></div>
+            <div class="card"><img src="images/git-status.png" alt="git status"><h3>git status</h3><p>Показує стан репозиторію</p></div>
+            <div class="card"><img src="images/git-log.png" alt="git log"><h3>git log</h3><p>Відображає історію комітів</p></div>
+            <div class="card"><img src="images/git-branch.png" alt="git branch"><h3>git branch</h3><p>Управління гілками репозиторію</p></div>
+            <div class="card"><img src="images/git-merge.png" alt="git merge"><h3>git merge</h3><p>Об’єднує гілки репозиторію</p></div>
+        </div>
+    </section>
+
+    <section class="info" id="commands-detailed">
+        <h2>10 базових команд Git — з коментарями та прикладами</h2>
+
+        <pre><code>1) git init
+Команда: git init
+Коментар: Ініціалізує новий локальний репозиторій у поточній теці. Створює папку .git із метаданими.
+Приклад: git init</code></pre>
+
+        <pre><code>2) git clone &lt;url&gt;
+Команда: git clone https://github.com/user/repo.git
+Коментар: Клонує віддалений репозиторій локально — звантажує весь вміст та історію.</code></pre>
+
+        <pre><code>3) git add &lt>файл(и)&gt;
+Команда: git add file.txt
+Коментар: Додає файли до індексу (staging area) — підготовка до коміту. Для всіх файлів: git add .</code></pre>
+
+        <pre><code>4) git commit -m "повідомлення"
+Команда: git commit -m "Додано стартовий файл"
+Коментар: Фіксує індексні зміни у новий коміт з повідомленням.</code></pre>
+
+        <pre><code>5) git push &lt;remote&gt; &lt;branch&gt;
+Команда: git push origin main
+Коментар: Відправляє локальні коміти на віддалений сервер (remote). Зазвичай origin та назва гілки.</code></pre>
+
+        <pre><code>6) git pull
+Команда: git pull
+Коментар: Забирає останні зміни з віддаленого репозиторію і автоматично зливає їх у поточну гілку (fetch + merge).</code></pre>
+
+        <pre><code>7) git status
+Команда: git status
+Коментар: Показує незафіксовані зміни, файли в індексі та поточну гілку — дуже корисна для орієнтування.</code></pre>
+
+        <pre><code>8) git log --oneline
+Команда: git log --oneline
+Коментар: Показує журнал комітів. Варіант --oneline зручний для стислого перегляду історії.</code></pre>
+
+        <pre><code>9) git branch &lt;ім'я_гілки&gt;
+Команда: git branch feature-x
+Коментар: Створює нову гілку. git branch без параметрів покаже існуючі гілки. Щоб перейти: git checkout feature-x</code></pre>
+
+        <pre><code>10) git merge &lt;гілка&gt;
+Команда: git merge feature-x
+Коментар: Зливає вказану гілку у поточну. Часто використовують після перевірки змін у feature-гілці.</code></pre>
+
+    </section>
+
+    <section class="info" id="git-certificate">
+        <h2>Сертифікат курсу по Git</h2>
+        <p>Заміни файл <code>images/git_certificate.png</code> на свій сертифікат — він відобразиться тут.</p>
+        <img src="images/git_certificate.png" alt="Сертифікат курсу по Git" id="git-cert" style="max-width:540px; border:2px solid #00FFF7; border-radius:10px; box-shadow:0 0 12px #00FFF7;">
+    </section>
+
+    <section class="info" id="sources">
+        <h2>Джерела інформації (EN / UK)</h2>
+        <ul>
+            <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Official Git — документація та завантаження (EN)</a></li>
+            <li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">Pro Git Book — повне керівництво (EN)</a></li>
+            <li><a href="https://www.atlassian.com/git/tutorials" target="_blank" rel="noopener">Atlassian Git Tutorials — практичні уроки (EN)</a></li>
+            <li><a href="https://docs.github.com/en/get-started/using-git" target="_blank" rel="noopener">GitHub Docs — документація Git та робота з GitHub (EN)</a></li>
+            <li><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener">Learn Git Branching — інтерактивне навчання (EN)</a></li>
+            <li><a href="https://uk.wikipedia.org/wiki/Git" target="_blank" rel="noopener">Git — стаття в українській Вікіпедії (UK)</a></li>
+        </ul>
+        <p>Джерела тільки англійською або українською — російських джерел тут немає.</p>
+    </section>
+
+    <footer>
+        <p>© 2025 S1lver Library</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
