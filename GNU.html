@@ -39,63 +39,61 @@
     <section id="commands" class="cards">
         <h2>Приклади команд роботи в Linux CLI </h2>
         <div class="card-container">
-            <div class="card"><h3></h3><p>Зберегти файл</p></div>
-            <div class="card"><h3>Ctrl + A</h3><p>Застосувати трансформації (Apply: Location, Rotation, Scale)</p></div>
-            <div class="card"><h3>Tab</h3><p>Перемикання між Object Mode та Edit Mode</p></div>
-            <div class="card"><h3>X / Delete</h3><p>видалити об’єкт або геометрію</p></div>
-            <div class="card"><h3>Shift + D</h3><p>дублювати об’єкт (Duplicate)</p></div>
-            <div class="card"><h3>Ctrl + Z</h3><p>Скасувати останню дію (Undo)</p></div>
-            <div class="card"><h3>E</h3><p>Екструдувати (Extrude) виділену геометрію</p></div>
-            <div class="card"><h3>S</h3><p>Масштабувати об’єкт (Scale)</p></div>
-            <div class="card"><h3>R</h3><p>Обертати об’єкт (Rotate)</p></div>
-            <div class="card"><h3>G</h3><p>Перемістити об’єкт (Grab/Move).</p></div>
+            <div class="card"><h3>pwd</h3><p>показує поточну директорію</p></div>
+            <div class="card"><h3>echo</h3><p>виводить текст або змінну</p></div>
+            <div class="card"><h3>ls</h3><p>список файлів у директорії</p></div>
+            <div class="card"><h3>cd</h3><p>перехід між директоріями</p></div>
+            <div class="card"><h3>touch</h3><p>творення порожнього файлу</p></div>
+            <div class="card"><h3>mkdir</h3><p>створення нової папки</p></div>
+            <div class="card"><h3>cp</h3><p>копіювання файлів/папок</p></div>
+            <div class="card"><h3>mv</h3><p>переміщення або перейменування</p></div>
+            <div class="card"><h3>rm</h3><p>видалення файлу</p></div>
+            <div class="card"><h3>history</h3><p>показує історію введених команд</p></div>
         </div>
     </section>
 
     <section class="info" id="commands-detailed">
-        <h2>10 базових команд Blender — з коментарями </h2>
+        <h2>BASH-cкрипт, що імітує авторизацію в системі в текстовому режимі.</h2>
 
-        <pre><code>1) Ctrl + S
-Команда: Ctrl + S (Save)
-Коментар: Зберігає поточний файл .blend.
+        <pre><code>1) BASH
+#!/usr/bin/env bash
+USERS_DB="./users.db"
+read -p "Login: " user
+read -s -p "Password: " pwd
+echo
+if [[ ! -f "$USERS_DB" ]]; then
+  echo "No users.db"
+  exit 1
+fi
+entry=$(grep -m1 -E "^${user}:" "$USERS_DB" || true)
+if [[ -z "$entry" ]]; then
+  echo "Unknown user"
+  exit 2
+fi
+IFS=':' read -r u stored_hash last_login <<< "$entry"
+hash=$(printf "%s" "$pwd" | sha256sum | awk '{print $1}')
+if [[ "$hash" != "$stored_hash" ]]; then
+  echo "Bad password"
+  exit 3
+fi
+echo "Welcome, $user"
+while true; do
+  read -p "${user}@fake-shell$ " cmd args
+  case "$cmd" in
+    exit|logout) break ;;
+    whoami) echo "$user" ;;
+    pwd) pwd ;;
+    echo) echo $args ;;
+    "") continue ;;
+    *) echo "Command not found" ;;
+  esac
+done
+now=$(date --iso-8601=seconds)
+awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} {print; next} {print}' "$USERS_DB" > "${USERS_DB}.tmp" && mv "${USERS_DB}.tmp" "$USERS_DB"
+
 </code></pre>
 
-        <pre><code>2) Ctrl + A (Apply)
-Команда: Ctrl + A (Apply)
-Коментар: Застосовує трансформації об’єкта (позицію, обертання, масштаб).</code></pre>
-
-        <pre><code>3) Tab
-Команда: Tab
-Коментар: Перемикається між Object Mode (робота з об’єктами) та Edit Mode (редагування геометрії).</code></pre>
-
-        <pre><code>4) X / Delete
-Команда: X / Delete
-Коментар: Видаляє виділений об’єкт або елементи геометрії.</code></pre>
-
-        <pre><code>5) Shift + D (Duplicate)
-Команда: Shift + D (Duplicate)
-Коментар: Створює копію виділеного об’єкта.</code></pre>
-
-        <pre><code>6) Ctrl + Z (Undo)
-Команда: Ctrl + Z (Undo)
-Коментар: Скасовує останню дію.</code></pre>
-
-        <pre><code>7) E (Extrude)
-Команда: E (Extrude)
-Коментар: Екструдує виділену вершину, ребро або грань для створення нової геометрії.</code></pre>
-
-        <pre><code>8) S (Scale)
-Команда: S (Scale)
-Коментар: Змінює розмір об’єкта або виділеної частини.</code></pre>
-
-        <pre><code>9) R (Rotate)
-Команда: R (Rotate)
-Коментар: Обертає об’єкт або виділену геометрію.</code></pre>
-
-        <pre><code>10) G (Grab/Move)
-Команда: G (Grab/Move)
-Коментар: Переміщує виділений об’єкт або вершину.</code></pre>
-
+        
     </section>
 
     <section class="info" id="git-certificate">
@@ -121,6 +119,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
