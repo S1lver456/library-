@@ -56,43 +56,43 @@
         <h2>BASH-cкрипт, що імітує авторизацію в системі в текстовому режимі.</h2>
 
         <pre><code>
- <li> 1) BASH </li>
- <li> #!/usr/bin/env bash </li>
- <li>USERS_DB="./users.db"</li>
- <li>read -p "Login: " user</li>
- <li>read -s -p "Password: " pwd</li>
- <li>echo</li>
- <li>if [[ ! -f "$USERS_DB" ]]; then</li>
+  <li> 1) BASH </li>
+  <li> #!/usr/bin/env bash </li>
+  <li>USERS_DB="./users.db"</li>
+  <li>read -p "Login: " user</li>
+  <li>read -s -p "Password: " pwd</li>
+  <li>echo</li>
+  <li>if [[ ! -f "$USERS_DB" ]]; then</li>
   <li> echo "No users.db"</li>
-  <li> exit 1</li>
- <li>fi</li>
- <li>entry=$(grep -m1 -E "^${user}:" "$USERS_DB" || true)</li>
- <li>if [[ -z "$entry" ]]; then</li>
- <li>  echo "Unknown user"</li>
-  <li> exit 2</li>
- <li>fi</li>
- <li>IFS=':' read -r u stored_hash last_login <<< "$entry"</li>
- <li>hash=$(printf "%s" "$pwd" | sha256sum | awk '{print $1}')</li>
- <li>if [[ "$hash" != "$stored_hash" ]]; then</li>
- <li>  echo "Bad password"</li>
-  <li> exit 3</li>
- <li>fi</li>
- <li>echo "Welcome, $user"</li>
- <li>while true; do</li>
-  <li> read -p "${user}@fake-shell$ " cmd args</li>
-  <li> case "$cmd" in</li>
-   <li>  exit|logout) break ;;</li>
-   <li>  whoami) echo "$user" ;;</li>
-   <li>  pwd) pwd ;;</li>
-   <li>  echo) echo $args ;;</li>
-   <li>  "") continue ;;</li>
-   <li>  *) echo "Command not found" ;;</li>
-  <li> esac</li>
- <li>done</li>
- <li>now=$(date --iso-8601=seconds)</li>
- <li>awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} </li>
- <li>{print; next} {print}' "$USERS_DB" > </li>
- <li>"${USERS_DB}.tmp" && mv "${USERS_DB}.tmp" "$USERS_DB"</li>
+   <li> exit 1</li>
+  <li>fi</li>
+  <li>entry=$(grep -m1 -E "^${user}:" "$USERS_DB" || true)</li>
+  <li>if [[ -z "$entry" ]]; then</li>
+  <li>  echo "Unknown user"</li>
+   <li> exit 2</li>
+  <li>fi</li>
+  <li>IFS=':' read -r u stored_hash last_login <<< "$entry"</li>
+  <li>hash=$(printf "%s" "$pwd" | sha256sum | awk '{print $1}')</li>
+  <li>if [[ "$hash" != "$stored_hash" ]]; then</li>
+  <li>  echo "Bad password"</li>
+   <li> exit 3</li>
+  <li>fi</li>
+  <li>echo "Welcome, $user"</li>
+  <li>while true; do</li>
+   <li> read -p "${user}@fake-shell$ " cmd args</li>
+   <li> case "$cmd" in</li>
+    <li>  exit|logout) break ;;</li>
+    <li>  whoami) echo "$user" ;;</li>
+    <li>  pwd) pwd ;;</li>
+    <li>  echo) echo $args ;;</li>
+    <li>  "") continue ;;</li>
+    <li>  *) echo "Command not found" ;;</li>
+   <li> esac</li>
+  <li>done</li>
+  <li>now=$(date --iso-8601=seconds)</li>
+  <li>awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} </li>
+  <li>{print; next} {print}' "$USERS_DB" > </li>
+  <li>"${USERS_DB}.tmp" && mv "${USERS_DB}.tmp" "$USERS_DB"</li>
 
 </code></pre>
 
@@ -106,18 +106,18 @@
         <h2>BASH-cкрипт,treasure_map.sh</h2>
 
         <pre><code>
- <li>#!/bin/bash</li>
+  <li>#!/bin/bash</li>
 
- <li># Assign the correct values to these variables</li>
- <li>LATITUDE=15</li>
- <li>LONGITUDE=25</li>
+  <li># Assign the correct values to these variables</li>
+  <li>LATITUDE=15</li>
+  <li>LONGITUDE=25</li>
 
- <li># Calculate the paces using arithmetic operations</li>
- <li>PACES_NORTH=$((LATITUDE * 2))</li>
- <li>PACES_EAST=$((LONGITUDE / 5))</li>
+  <li># Calculate the paces using arithmetic operations</li>
+  <li>PACES_NORTH=$((LATITUDE * 2))</li>
+  <li>PACES_EAST=$((LONGITUDE / 5))</li>
 
- <li># Don't modify the line below</li>
- <li>echo "The treasure is buried $PACES_NORTH paces north and $PACES_EAST paces east from the old oak tree."</li>
+  <li># Don't modify the line below</li>
+  <li>echo "The treasure is buried $PACES_NORTH paces north and $PACES_EAST paces east from the old oak tree."</li>
     
     </code></pre>
     </section>
@@ -127,44 +127,44 @@
         <h2>BASH-cкрипт,cargo_manifest.sh</h2>
 
         <pre><code>
- <li>#!/bin/bash</li>
+  <li>#!/bin/bash</li>
 
- <li># Create arrays for each cargo bay</li>
- <li>forward_bay=("Space Suits" "Oxygen Tanks" "Repair Kits")</li>
- <li>midship_bay=("Food Supplies" "Water Containers" "Medical Equipment")</li>
+  <li># Create arrays for each cargo bay</li>
+  <li>forward_bay=("Space Suits" "Oxygen Tanks" "Repair Kits")</li>
+  <li>midship_bay=("Food Supplies" "Water Containers" "Medical Equipment")</li>
  <li>aft_bay=("Spare Parts" "Fuel Cells" "Scientific Instruments")</li>
 
- <li># Check if an argument is provided</li>
- <li>if [ -z "$1" ]; then</li>
-    <li> echo "Please specify a cargo bay: forward, midship, or aft"</li>
-    <li> exit 1</li>
- <li>fi</li>
+  <li># Check if an argument is provided</li>
+  <li>if [ -z "$1" ]; then</li>
+     <li> echo "Please specify a cargo bay: forward, midship, or aft"</li>
+     <li> exit 1</li>
+  <li>fi</li>
 
- <li># Display inventory based on argument</li>
- <li>case "$1" in</li>
-    <li> forward)</li>
-        <li> echo "Forward Bay Inventory:"</li>
-        <li> echo "1. ${forward_bay[0]}"</li>
-         <li>echo "2. ${forward_bay[1]}"</li>
-        <li> echo "3. ${forward_bay[2]}"</li>
-        <li> ;;</li>
-    <li> midship)</li>
-        <li> echo "Midship Bay Inventory:"</li>
-        <li> echo "1. ${midship_bay[0]}"</li>
-        <li> echo "2. ${midship_bay[1]}"</li>
-        <li> echo "3. ${midship_bay[2]}"</li>
-       <li>  ;;</li>
-   <li>  aft)</li>
-       <li>  echo "Aft Bay Inventory:"</li>
-       <li>  echo "1. ${aft_bay[0]}"</li>
-        <li> echo "2. ${aft_bay[1]}"</li>
-        <li> echo "3. ${aft_bay[2]}"</li>
-       <li>  ;;</li>
-  <li>   *)</li>
-        <li> echo "Invalid cargo bay. Choose forward, midship, or aft."</li>
-        <li> exit 1</li>
-        <li> ;;</li>
- <li>esac</li>
+  <li># Display inventory based on argument</li>
+  <li>case "$1" in</li>
+     <li> forward)</li>
+         <li> echo "Forward Bay Inventory:"</li>
+         <li> echo "1. ${forward_bay[0]}"</li>
+          <li>echo "2. ${forward_bay[1]}"</li>
+         <li> echo "3. ${forward_bay[2]}"</li>
+         <li> ;;</li>
+     <li> midship)</li>
+         <li> echo "Midship Bay Inventory:"</li>
+         <li> echo "1. ${midship_bay[0]}"</li>
+         <li> echo "2. ${midship_bay[1]}"</li>
+         <li> echo "3. ${midship_bay[2]}"</li>
+        <li>  ;;</li>
+    <li>  aft)</li>
+        <li>  echo "Aft Bay Inventory:"</li>
+        <li>  echo "1. ${aft_bay[0]}"</li>
+         <li> echo "2. ${aft_bay[1]}"</li>
+         <li> echo "3. ${aft_bay[2]}"</li>
+        <li>  ;;</li>
+   <li>   *)</li>
+         <li> echo "Invalid cargo bay. Choose forward, midship, or aft."</li>
+         <li> exit 1</li>
+         <li> ;;</li>
+  <li>esac</li>
     
     </code></pre>
     </section>
@@ -193,6 +193,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
