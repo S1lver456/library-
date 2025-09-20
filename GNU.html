@@ -55,8 +55,10 @@
     <section class="info" id="commands-detailed">
         <h2>BASH-cкрипт, що імітує авторизацію в системі в текстовому режимі.</h2>
 
-        <pre><code>1) BASH
-#!/usr/bin/env bash
+        <pre><code>
+          
+             <li> 1) BASH </li>
+ <li> #!/usr/bin/env bash </li>
 USERS_DB="./users.db"
 read -p "Login: " user
 read -s -p "Password: " pwd
@@ -119,6 +121,7 @@ awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} {print; next} {prin
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
