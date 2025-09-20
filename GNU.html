@@ -56,42 +56,43 @@
         <h2>BASH-cкрипт, що імітує авторизацію в системі в текстовому режимі.</h2>
 
         <pre><code>
-          
-             <li> 1) BASH </li>
+ <li> 1) BASH </li>
  <li> #!/usr/bin/env bash </li>
-USERS_DB="./users.db"
-read -p "Login: " user
-read -s -p "Password: " pwd
-echo
-if [[ ! -f "$USERS_DB" ]]; then
-  echo "No users.db"
-  exit 1
-fi
-entry=$(grep -m1 -E "^${user}:" "$USERS_DB" || true)
-if [[ -z "$entry" ]]; then
-  echo "Unknown user"
-  exit 2
-fi
-IFS=':' read -r u stored_hash last_login <<< "$entry"
-hash=$(printf "%s" "$pwd" | sha256sum | awk '{print $1}')
-if [[ "$hash" != "$stored_hash" ]]; then
-  echo "Bad password"
-  exit 3
-fi
-echo "Welcome, $user"
-while true; do
-  read -p "${user}@fake-shell$ " cmd args
-  case "$cmd" in
-    exit|logout) break ;;
-    whoami) echo "$user" ;;
-    pwd) pwd ;;
-    echo) echo $args ;;
-    "") continue ;;
-    *) echo "Command not found" ;;
-  esac
-done
-now=$(date --iso-8601=seconds)
-awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} {print; next} {print}' "$USERS_DB" > "${USERS_DB}.tmp" && mv "${USERS_DB}.tmp" "$USERS_DB"
+ <li>USERS_DB="./users.db"</li>
+ <li>read -p "Login: " user</li>
+ <li>read -s -p "Password: " pwd</li>
+ <li>echo</li>
+ <li>if [[ ! -f "$USERS_DB" ]]; then</li>
+  <li> echo "No users.db"</li>
+  <li> exit 1</li>
+ <li>fi</li>
+ <li>entry=$(grep -m1 -E "^${user}:" "$USERS_DB" || true)</li>
+ <li>if [[ -z "$entry" ]]; then</li>
+ <li>  echo "Unknown user"</li>
+  <li> exit 2</li>
+ <li>fi</li>
+ <li>IFS=':' read -r u stored_hash last_login <<< "$entry"</li>
+ <li>hash=$(printf "%s" "$pwd" | sha256sum | awk '{print $1}')</li>
+ <li>if [[ "$hash" != "$stored_hash" ]]; then</li>
+ <li>  echo "Bad password"</li>
+  <li> exit 3</li>
+ <li>fi</li>
+ <li>echo "Welcome, $user"</li>
+ <li>while true; do</li>
+  <li> read -p "${user}@fake-shell$ " cmd args</li>
+  <li> case "$cmd" in</li>
+   <li>  exit|logout) break ;;</li>
+   <li>  whoami) echo "$user" ;;</li>
+   <li>  pwd) pwd ;;</li>
+   <li>  echo) echo $args ;;</li>
+   <li>  "") continue ;;</li>
+   <li>  *) echo "Command not found" ;;</li>
+  <li> esac</li>
+ <li>done</li>
+ <li>now=$(date --iso-8601=seconds)</li>
+ <li>awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} </li>
+ <li>{print; next} {print}' "$USERS_DB" > </li>
+ <li>"${USERS_DB}.tmp" && mv "${USERS_DB}.tmp" "$USERS_DB"</li>
 
 </code></pre>
 
@@ -121,6 +122,7 @@ awk -F: -v u="$user" -v n="$now" 'BEGIN{OFS=":"} $1==u{$3=n} {print; next} {prin
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
